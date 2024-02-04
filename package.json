@@ -1,0 +1,27 @@
+{
+  "name": "community-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/app.js",
+  "scripts": {
+    "start": "NODE_ENV=local nodemon build/app.js",
+    "watch-ts": "tsc -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/bodyparser": "^5.0.0",
+    "@koa/cors": "^3.4.1",
+    "@koa/router": "^12.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "koa": "^2.13.4",
+    "koa-jwt": "^4.0.4",
+    "koa-router": "^12.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.5",
+    "@types/node": "^18.7.16"
+  }
+}
