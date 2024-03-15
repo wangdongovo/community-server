@@ -24,4 +24,4 @@ app.use(jwt({ secret: `KwOr0W4HGTsaokU0` }).unless({ path: [/^\/login/] }));
 app.use(router.routes()).use(router.allowedMethods())
 
 // 运行服务器
-app.listen(3001)
+app.listen(3000)
