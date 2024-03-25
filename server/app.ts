@@ -18,7 +18,7 @@ app.use(bodyParser())
 
 
 // jwt
-app.use(jwt({ secret: `KwOr0W4HGTsaokU0` }).unless({ path: [/^\/login/] }));
+app.use(jwt({ secret: `KwOr0W4HGTsaokU0` }).unless({ path: [/^\/login/, /^\/register/] }));
 
 // 响应用户请求
 app.use(router.routes()).use(router.allowedMethods())

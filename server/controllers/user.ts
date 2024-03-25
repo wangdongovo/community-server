@@ -100,4 +100,32 @@ export default class UserController {
       console.log(error, "登录出错");
     }
   }
+
+  // 修改用户信息
+  public static async update(ctx: Context) {
+    const result: any = { code: 500, userInfo: null, message: "操作失败" };
+    try {
+      const userInfo = ctx.request.body;
+      console.log(`🍍🙏🍍👉: 用户信息`, userInfo);
+      
+
+      const { email, password } = userInfo;
+
+      if (email === "wangdongovo@gmail.com" && password === "yaocc521") {
+        // 这里只是示例，实际应用中需要查询数据库
+        const token = JwtUtil.generate({ email, password });
+        ctx.body = { token };
+
+        result.code = 200;
+        result.message = "操作成功";
+      }else {
+        result.code = 401;
+        result.message = "用户名或密码错误";
+        ctx.body = result;
+      }
+    } catch (error) {
+      console.log(error, "登录出错");
+    }
+
+  }
 }

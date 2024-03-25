@@ -4,7 +4,7 @@ const config = {
   port: 3000,
   //数据库配置
   database: {
-    DATABASE: "duck",
+    DATABASE: "community_app",
     USERNAME: "root",
     PASSWORD: "yaocc521",
     PORT: "3306",
