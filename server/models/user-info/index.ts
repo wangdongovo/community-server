@@ -1,3 +1,4 @@
+import { log } from "console"
 import query from "../../mysql/index"
 
 async function getUser(uid: number) {
@@ -37,25 +38,26 @@ const createUser = async (userInfo: any) => {
   }
 }
 
-
-
 // 用户信息更新
 
 const updateUser = async (userInfo: any) => {
   try {
-
     console.log(
       `%c ${new Date().toLocaleString()} %c devtools %c`,
-      'background: linear-gradient(to right, #8a2387, #e94057, #f27121); color: #fff; padding: 1px; border-radius: 3px 0 0 3px;',
-      'background: linear-gradient(to right, #8a2387, #e94057, #f27121); padding: 1px; border-radius: 0; color: #fff;',
-      'background:transparent', userInfo
-      )
-    
-  } catch (error) {
-    
-  }
+      "background: linear-gradient(to right, #8a2387, #e94057, #f27121); color: #fff; padding: 1px; border-radius: 3px 0 0 3px;",
+      "background: linear-gradient(to right, #8a2387, #e94057, #f27121); padding: 1px; border-radius: 0; color: #fff;",
+      "background:transparent",
+      userInfo
+    )
 
+    const { email, password } = userInfo
+
+    const sql = `update users set email = '${email}', password = '${password}' where uid = 9`
+    console.log(`sql`, sql)
+
+    const result: any = await query(sql)
+    return result?.affectedRows > 0 ? true : false
+  } catch (error) {}
 }
-
 
 export { getUser, getAllUser, createUser, updateUser }

@@ -33,7 +33,7 @@ const query = (sql: any, values?: any) => {
       } else {
         connection.query(sql, values, (err: any, rows: any) => {
           if (err) {
-            console.log("Mysql-error", err)
+            console.log("MySQL-ERROR", err)
             reject(err)
           } else {
             resolve(rows)
